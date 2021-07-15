@@ -21,7 +21,8 @@ export default defineComponent({
   },
   data () {
     return {
-      count: 0
+      count: 0,
+      isLoading: false
     }
   },
   methods: {
