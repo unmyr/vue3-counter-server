@@ -3,6 +3,12 @@
 describe('My First Test', () => {
   it('Visits the app root url', () => {
     cy.visit('/')
-    cy.contains('h1', 'Welcome to Your Vue.js + TypeScript App')
+    cy.get('#count-view').contains('0')
+    cy.get('button[name=plus]').click()
+    cy.get('#count-view').contains('1')
+    cy.get('button[name=minus]').click()
+    cy.get('#count-view').contains('0')
+    cy.get('button[name=minus]').click()
+    cy.get('#count-view').contains('-1')
   })
 })
