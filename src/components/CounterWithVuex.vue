@@ -1,7 +1,7 @@
 <template>
   <div class="counter-with-vuex">
     <button name="plus" :disabled="isLoading"
-     v-on:click="increment(step)"
+     v-on:click="syncIncrement(step)"
     >+{{ step }}</button>
     <button name="minus" :disabled="isLoading"
      v-on:click="asyncIncrement(step * -1)"
@@ -26,7 +26,7 @@ export default defineComponent({
       count: computed(() => store.state.count),
       isLoading: computed(() => store.state.isLoading),
       // access a mutation
-      increment: (num: number) => store.commit('increment', num),
+      syncIncrement: (num: number) => store.commit('increment', num),
       // access a action
       asyncIncrement: (num: number) => store.dispatch('increment', num)
     }
