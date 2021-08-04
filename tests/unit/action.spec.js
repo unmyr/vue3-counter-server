@@ -16,7 +16,7 @@ describe('actions', () => {
     const timeId = setInterval(
       () => {
         const timeNow = new Date()
-        const elapsedTimeSec = Math.floor((timeNow - timeBegin) / 1000.0)
+        const elapsedTimeSec = Math.floor((timeNow.getTime() - timeBegin.getTime()) / 1000.0)
         if (state.isLoading && elapsedTimeSec < 3) {
           return
         }
