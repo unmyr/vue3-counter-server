@@ -39,10 +39,10 @@ describe('CounterWithVuex.vue', () => {
       },
       props: { step }
     })
-    expect(state.count).toBe(0)
+    expect(state.count).to.equal(0)
     await wrapper.find("button[name='plus']").trigger('click')
-    expect(state.count).toBe(1)
-    expect(state.isLoading).toBe(false)
+    expect(state.count).to.equal(1)
+    expect(state.isLoading).to.equal(false)
   })
 
   it('should render decrement', async () => {
@@ -71,9 +71,9 @@ describe('CounterWithVuex.vue', () => {
       },
       props: { step }
     })
-    expect(state.count).toBe(0)
+    expect(state.count).to.equal(0)
     await wrapper.find("button[name='minus']").trigger('click')
-    expect(state.count).toBe(-1)
-    expect(state.isLoading).toBe(false)
+    expect(state.count).to.equal(-1)
+    expect(state.isLoading).to.equal(false)
   })
 })
