@@ -8,9 +8,9 @@ describe('Counter.vue', () => {
     const wrapper = shallowMount(Counter, {
       props: { step }
     })
-    expect(wrapper.vm.count).toBe(0)
+    expect(wrapper.vm.count).to.equal(0)
     await wrapper.find("button[name='plus']").trigger('click')
-    expect(wrapper.vm.count).toBe(1)
+    expect(wrapper.vm.count).to.equal(1)
   })
 
   it('click minus button', async () => {
@@ -18,8 +18,8 @@ describe('Counter.vue', () => {
     const wrapper = shallowMount(Counter, {
       props: { step }
     })
-    expect(wrapper.vm.count).toBe(0)
+    expect(wrapper.vm.count).to.equal(0)
     await wrapper.find("button[name='minus']").trigger('click')
-    expect(wrapper.vm.count).toBe(-1)
+    expect(wrapper.vm.count).to.equal(-1)
   })
 })
