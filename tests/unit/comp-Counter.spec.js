@@ -3,13 +3,13 @@ import Counter from '@/components/Counter.vue'
 
 describe('Counter.vue', () => {
   it('test increment method', async () => {
-    const step = 1
+    const step = 2
     const wrapper = shallowMount(Counter, {
       props: { step }
     })
     expect(wrapper.vm.count).toBe(0)
-    wrapper.vm.increment(2)
-    expect(wrapper.vm.count).toBe(2)
+    wrapper.vm.increment(step)
+    expect(wrapper.vm.count).toBe(step)
   })
 
   it('click plus button', async () => {
