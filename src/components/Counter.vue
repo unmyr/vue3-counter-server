@@ -12,22 +12,33 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { computed, defineComponent, reactive } from 'vue'
+
+interface ICounter {
+  isLoading: boolean
+  count: number
+}
 
 export default defineComponent({
   name: 'Counter',
   props: {
     step: Number
   },
-  data () {
-    return {
+  setup () {
+    const state = reactive<ICounter>({
       count: 0,
       isLoading: false
+    })
+
+    function increment (num: number): void {
+      state.count += num
     }
-  },
-  methods: {
-    increment (num: number): void {
-      this.count += num
+
+    return {
+      state,
+      count: computed(() => state.count),
+      isLoading: computed(() => state.isLoading),
+      increment
     }
   }
 })
