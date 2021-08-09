@@ -1,5 +1,5 @@
 export default {
-  increment ({ commit }: any, param: number) {
+  increment ({ commit }: any, param: number): void {
     commit('setLoading', true)
     setTimeout(
       () => {
