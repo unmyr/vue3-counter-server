@@ -6,13 +6,13 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from "vue";
-import CounterWithVuex from "@/components/CounterWithVuex.vue";
+  import { defineComponent } from "vue";
+  import CounterWithVuex from "@/components/CounterWithVuex.vue";
 
-export default defineComponent({
-  name: "Home",
-  components: {
-    CounterWithVuex,
-  },
-});
+  export default defineComponent({
+    name: "Home",
+    components: {
+      CounterWithVuex,
+    },
+  });
 </script>
