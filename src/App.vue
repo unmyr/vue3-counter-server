@@ -4,7 +4,7 @@
     <router-link to="/counter-with-vuex">Counter with Vuex</router-link> |
     <router-link to="/about">About</router-link>
   </div>
-  <router-view/>
+  <router-view />
 </template>
 
 <style lang="scss">
