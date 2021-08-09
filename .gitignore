@@ -2,10 +2,15 @@
 node_modules
 /dist
 
+# Nightwatch.js files
 /tests/e2e/reports/
 selenium-debug.log
 chromedriver.log
 geckodriver.log
+
+# Cypress files
+/tests/e2e/videos/
+/tests/e2e/screenshots/
 
 
 # local env files
@@ -26,3 +31,6 @@ pnpm-debug.log*
 *.njsproj
 *.sln
 *.sw?
+
+# Coverage directory used by tools
+/coverage
