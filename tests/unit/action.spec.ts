@@ -4,21 +4,24 @@ import mutations from "@/store/mutations";
 import actions from "@/store/actions";
 import { IState } from "@/store/IState";
 
-/* eslint-disable  @typescript-eslint/no-explicit-any */
 type MutationFunction = (state: IState, payload: any) => void;
 
 describe("actions", () => {
+  const mutationsFnMap: { [K: string]: MutationFunction } = {
+    setLoading: mutations.setLoading,
+    increment: mutations.increment,
+  };
+
   it("increment action", (done) => {
     const state: IState = {
       count: 0,
       isLoading: false,
     };
-    const mutationsFnMap: { [K: string]: MutationFunction } = {
-      setLoading: mutations.setLoading,
-      increment: mutations.increment,
-    };
-    const commit = (funcName: string, payload: any) => {
-      mutationsFnMap[funcName](state, payload);
+
+    const commit: Commit = (funcName: string, payload: any) => {
+      if (mutationsFnMap[funcName]) {
+        mutationsFnMap[funcName](state, payload);
+      }
     };
 
     actions.increment({ commit }, 1);

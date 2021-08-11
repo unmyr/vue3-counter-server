@@ -6,6 +6,7 @@ import mutations from "@/store/mutations";
 import { key } from "@/store";
 import { IState } from "@/store/IState";
 
+type MutationFunction = (state: IState, payload: any) => void;
 type IAction = (params: { commit: Commit }, payload: any) => void;
 
 describe("CounterWithVuex.vue (TypeScript)", () => {
@@ -20,7 +21,7 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     increment: mockActions.increment,
   };
 
-  const mutationMap: { [K: string]: (state: IState, payload: any) => void } = {
+  const mutationsFnMap: { [K: string]: MutationFunction } = {
     increment: mutations.increment,
     setLoading: mutations.setLoading,
   };
@@ -32,8 +33,8 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     };
 
     const commit: Commit = (funcName: string, payload: any) => {
-      if (mutationMap[funcName]) {
-        mutationMap[funcName](state, payload);
+      if (mutationsFnMap[funcName]) {
+        mutationsFnMap[funcName](state, payload);
       }
     };
 
@@ -72,8 +73,8 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     };
 
     const commit: Commit = (funcName: string, payload: any) => {
-      if (mutationMap[funcName]) {
-        mutationMap[funcName](state, payload);
+      if (mutationsFnMap[funcName]) {
+        mutationsFnMap[funcName](state, payload);
       }
     };
 
