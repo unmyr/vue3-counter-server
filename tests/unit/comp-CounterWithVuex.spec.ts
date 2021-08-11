@@ -6,7 +6,7 @@ import mutations from "@/store/mutations";
 import { key } from "@/store";
 import { IState } from "@/store/IState";
 
-type MutationFunction = (state: IState, payload: any) => void;
+type IMutation = (state: IState, payload: any) => void;
 type IAction = (params: { commit: Commit }, payload: any) => void;
 
 describe("CounterWithVuex.vue (TypeScript)", () => {
@@ -17,11 +17,11 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     },
   };
 
-  const actionMap: { [K: string]: IAction } = {
+  const actionFnMap: { [K: string]: IAction } = {
     increment: mockActions.increment,
   };
 
-  const mutationsFnMap: { [K: string]: MutationFunction } = {
+  const mutationFnMap: { [K: string]: IMutation } = {
     increment: mutations.increment,
     setLoading: mutations.setLoading,
   };
@@ -33,14 +33,14 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     };
 
     const commit: Commit = (funcName: string, payload: any) => {
-      if (mutationsFnMap[funcName]) {
-        mutationsFnMap[funcName](state, payload);
+      if (mutationFnMap[funcName]) {
+        mutationFnMap[funcName](state, payload);
       }
     };
 
     const dispatch = (funcName: string, payload: number) => {
-      if (actionMap[funcName]) {
-        actionMap[funcName]({ commit }, payload);
+      if (actionFnMap[funcName]) {
+        actionFnMap[funcName]({ commit }, payload);
       }
     };
 
@@ -73,14 +73,14 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     };
 
     const commit: Commit = (funcName: string, payload: any) => {
-      if (mutationsFnMap[funcName]) {
-        mutationsFnMap[funcName](state, payload);
+      if (mutationFnMap[funcName]) {
+        mutationFnMap[funcName](state, payload);
       }
     };
 
     const dispatch = (funcName: string, payload: number) => {
-      if (actionMap[funcName]) {
-        actionMap[funcName]({ commit }, payload);
+      if (actionFnMap[funcName]) {
+        actionFnMap[funcName]({ commit }, payload);
       }
     };
 

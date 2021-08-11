@@ -4,10 +4,10 @@ import mutations from "@/store/mutations";
 import actions from "@/store/actions";
 import { IState } from "@/store/IState";
 
-type MutationFunction = (state: IState, payload: any) => void;
+type IMutation = (state: IState, payload: any) => void;
 
 describe("actions", () => {
-  const mutationsFnMap: { [K: string]: MutationFunction } = {
+  const mutationFnMap: { [K: string]: IMutation } = {
     setLoading: mutations.setLoading,
     increment: mutations.increment,
   };
@@ -19,8 +19,8 @@ describe("actions", () => {
     };
 
     const commit: Commit = (funcName: string, payload: any) => {
-      if (mutationsFnMap[funcName]) {
-        mutationsFnMap[funcName](state, payload);
+      if (mutationFnMap[funcName]) {
+        mutationFnMap[funcName](state, payload);
       }
     };
 
