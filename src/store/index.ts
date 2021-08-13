@@ -1,6 +1,6 @@
 import { InjectionKey } from "vue";
 import { createStore, Store } from "vuex";
-import { IState } from "@/store/IState";
+import { IState } from "@/store/CounterState";
 import { mutations } from "@/store/mutations";
 import actions from "@/store/actions";
 

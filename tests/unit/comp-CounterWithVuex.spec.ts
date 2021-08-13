@@ -4,7 +4,7 @@ import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
 import { mutations } from "@/store/mutations";
 import { key } from "@/store";
-import { IState } from "@/store/IState";
+import { IState } from "@/store/CounterState";
 
 type IAction = (params: { commit: Commit }, payload: any) => void;
 
