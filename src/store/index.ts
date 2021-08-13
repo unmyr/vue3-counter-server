@@ -1,10 +1,10 @@
 import { InjectionKey } from "vue";
 import { createStore, Store } from "vuex";
-import { IState } from "@/store/IState";
-import mutations from "@/store/mutations";
+import { CounterState } from "@/store/CounterState";
+import { mutations } from "@/store/mutations";
 import actions from "@/store/actions";
 
-export const store = createStore<IState>({
+export const store = createStore<CounterState>({
   state: {
     count: 0,
     isLoading: false,
@@ -14,4 +14,4 @@ export const store = createStore<IState>({
   modules: {},
 });
 
-export const key: InjectionKey<Store<IState>> = Symbol("global store");
+export const key: InjectionKey<Store<CounterState>> = Symbol("global store");

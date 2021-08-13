@@ -1,11 +1,11 @@
-import mutations from "@/store/mutations";
+import { mutations } from "@/store/mutations";
 import actions from "@/store/actions";
 
 describe("actions", () => {
   it("increment action", (done) => {
     const state = {
       count: 0,
-      isLoading: false
+      isLoading: false,
     };
     const commit = (fname, payload) => {
       mutations[fname](state, payload);

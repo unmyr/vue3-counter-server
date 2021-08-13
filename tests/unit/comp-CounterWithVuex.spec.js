@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
-import mutations from "@/store/mutations.ts";
+import { mutations } from "@/store/mutations.ts";
 import { key } from "@/store";
 
 describe("CounterWithVuex.vue", () => {
@@ -8,13 +8,13 @@ describe("CounterWithVuex.vue", () => {
     increment({ commit }, param) {
       commit("increment", param);
       commit("setLoading", false);
-    }
+    },
   };
 
   it("should render increment", async () => {
     const state = {
       count: 0,
-      isLoading: false
+      isLoading: false,
     };
     const commit = (fname, payload) => {
       mutations[fname](state, payload);
@@ -32,11 +32,11 @@ describe("CounterWithVuex.vue", () => {
             mutations,
             actions: mockActions,
             commit: commit,
-            dispatch: dispatch
-          }
-        }
+            dispatch: dispatch,
+          },
+        },
       },
-      props: { step }
+      props: { step },
     });
     expect(state.count).toBe(0);
     await wrapper.find("button[name='plus']").trigger("click");
@@ -47,7 +47,7 @@ describe("CounterWithVuex.vue", () => {
   it("should render decrement", async () => {
     const state = {
       count: 0,
-      isLoading: false
+      isLoading: false,
     };
     const commit = (fname, payload) => {
       mutations[fname](state, payload);
@@ -64,11 +64,11 @@ describe("CounterWithVuex.vue", () => {
             mutations,
             actions: mockActions,
             commit: commit,
-            dispatch: dispatch
-          }
-        }
+            dispatch: dispatch,
+          },
+        },
       },
-      props: { step }
+      props: { step },
     });
     expect(state.count).toBe(0);
     await wrapper.find("button[name='minus']").trigger("click");
