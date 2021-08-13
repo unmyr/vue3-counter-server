@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import { CounterState } from "@/store/CounterState";
+import { CounterState } from "@/store/types";
 import { mutations } from "@/store/mutations";
 import actions from "@/store/actions";
 
