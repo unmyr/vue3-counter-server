@@ -1,7 +1,6 @@
 import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
 import { mutations } from "@/store/mutations.ts";
-import { key } from "@/store";
 
 describe("CounterWithVuex.vue", () => {
   const mockActions = {
@@ -27,7 +26,7 @@ describe("CounterWithVuex.vue", () => {
     const wrapper = mount(CounterWithVuex, {
       global: {
         provide: {
-          [key]: {
+          store: {
             state,
             mutations,
             actions: mockActions,
@@ -59,7 +58,7 @@ describe("CounterWithVuex.vue", () => {
     const wrapper = mount(CounterWithVuex, {
       global: {
         provide: {
-          [key]: {
+          store: {
             state,
             mutations,
             actions: mockActions,

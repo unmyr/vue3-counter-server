@@ -18,7 +18,6 @@
 <script lang="ts">
   import { computed, defineComponent } from "vue";
   import { useStore } from "vuex";
-  import { key } from "@/store";
 
   export default defineComponent({
     name: "CounterWithVuex",
@@ -29,7 +28,7 @@
       },
     },
     setup() {
-      const store = useStore(key);
+      const store = useStore();
 
       return {
         // access a state in computed function
