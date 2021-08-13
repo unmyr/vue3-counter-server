@@ -1,5 +1,4 @@
-import { InjectionKey } from "vue";
-import { createStore, Store } from "vuex";
+import { createStore } from "vuex";
 import { CounterState } from "@/store/CounterState";
 import { mutations } from "@/store/mutations";
 import actions from "@/store/actions";
@@ -13,5 +12,3 @@ export const store = createStore<CounterState>({
   actions,
   modules: {},
 });
-
-export const key: InjectionKey<Store<CounterState>> = Symbol("global store");

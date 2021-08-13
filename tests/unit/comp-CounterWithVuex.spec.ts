@@ -3,7 +3,6 @@ import { expect } from "chai";
 import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
 import { mutations } from "@/store/mutations";
-import { key } from "@/store";
 import { CounterState } from "@/store/CounterState";
 
 type IAction = (params: { commit: Commit }, payload: any) => void;
@@ -47,7 +46,7 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     const wrapper = mount(CounterWithVuex, {
       global: {
         provide: {
-          [key as symbol]: {
+          store: {
             state,
             mutations,
             actions: mockActions,
@@ -87,7 +86,7 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     const wrapper = mount(CounterWithVuex, {
       global: {
         provide: {
-          [key as symbol]: {
+          store: {
             state,
             mutations,
             actions: mockActions,
