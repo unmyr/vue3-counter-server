@@ -1,5 +1,5 @@
 import { mutations } from "@/store/mutations";
-import actions from "@/store/actions";
+import { actions } from "@/store/actions";
 
 describe("actions", () => {
   it("increment action", (done) => {
