@@ -1,7 +1,7 @@
 import { Commit, MutationTree } from "vuex";
 import { expect } from "chai";
 import { mutations } from "@/store/mutations";
-import actions from "@/store/actions";
+import { actions } from "@/store/actions";
 import { CounterState } from "@/store/types";
 
 describe("actions", () => {
