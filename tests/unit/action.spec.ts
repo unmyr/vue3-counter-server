@@ -2,16 +2,16 @@ import { Commit, MutationTree } from "vuex";
 import { expect } from "chai";
 import { mutations } from "@/store/mutations";
 import actions from "@/store/actions";
-import { IState } from "@/store/CounterState";
+import { CounterState } from "@/store/CounterState";
 
 describe("actions", () => {
-  const mutationFnMap: MutationTree<IState> = {
+  const mutationFnMap: MutationTree<CounterState> = {
     setLoading: mutations.setLoading,
     increment: mutations.increment,
   };
 
   it("increment action", (done) => {
-    const state: IState = {
+    const state: CounterState = {
       count: 0,
       isLoading: false,
     };

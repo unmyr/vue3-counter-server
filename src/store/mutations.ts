@@ -1,7 +1,7 @@
 import { MutationTree } from "vuex";
-import { IState } from "@/store/CounterState";
+import { CounterState } from "@/store/CounterState";
 
-export const mutations: MutationTree<IState> = {
+export const mutations: MutationTree<CounterState> = {
   setLoading(state, flag: boolean): void {
     state.isLoading = flag;
   },

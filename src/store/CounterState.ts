@@ -1,4 +1,4 @@
-export interface IState {
+export interface CounterState {
   count: number;
   isLoading: boolean;
 }

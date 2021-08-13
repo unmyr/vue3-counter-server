@@ -4,7 +4,7 @@ import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
 import { mutations } from "@/store/mutations";
 import { key } from "@/store";
-import { IState } from "@/store/CounterState";
+import { CounterState } from "@/store/CounterState";
 
 type IAction = (params: { commit: Commit }, payload: any) => void;
 
@@ -20,13 +20,13 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     increment: mockActions.increment,
   };
 
-  const mutationFnMap: MutationTree<IState> = {
+  const mutationFnMap: MutationTree<CounterState> = {
     increment: mutations.increment,
     setLoading: mutations.setLoading,
   };
 
   it("should render increment", async () => {
-    const state: IState = {
+    const state: CounterState = {
       count: 0,
       isLoading: false,
     };
@@ -66,7 +66,7 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
   });
 
   it("should render decrement", async () => {
-    const state: IState = {
+    const state: CounterState = {
       count: 0,
       isLoading: false,
     };
