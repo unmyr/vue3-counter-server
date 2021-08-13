@@ -1,5 +1,5 @@
 import { MutationTree } from "vuex";
-import { CounterState } from "@/store/CounterState";
+import { CounterState } from "@/store/types";
 
 export const mutations: MutationTree<CounterState> = {
   setLoading(state, flag: boolean): void {

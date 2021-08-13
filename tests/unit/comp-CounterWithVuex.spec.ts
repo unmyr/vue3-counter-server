@@ -3,7 +3,7 @@ import { expect } from "chai";
 import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
 import { mutations } from "@/store/mutations";
-import { CounterState } from "@/store/CounterState";
+import { CounterState } from "@/store/types";
 
 type IAction = (params: { commit: Commit }, payload: any) => void;
 
