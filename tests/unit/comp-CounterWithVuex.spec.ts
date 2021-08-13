@@ -1,4 +1,4 @@
-import { Commit } from "vuex";
+import { Commit, MutationTree } from "vuex";
 import { expect } from "chai";
 import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
@@ -6,7 +6,6 @@ import mutations from "@/store/mutations";
 import { key } from "@/store";
 import { IState } from "@/store/IState";
 
-type IMutation = (state: IState, payload: any) => void;
 type IAction = (params: { commit: Commit }, payload: any) => void;
 
 describe("CounterWithVuex.vue (TypeScript)", () => {
@@ -21,7 +20,7 @@ describe("CounterWithVuex.vue (TypeScript)", () => {
     increment: mockActions.increment,
   };
 
-  const mutationFnMap: { [K: string]: IMutation } = {
+  const mutationFnMap: MutationTree<IState> = {
     increment: mutations.increment,
     setLoading: mutations.setLoading,
   };

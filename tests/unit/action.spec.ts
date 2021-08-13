@@ -1,13 +1,11 @@
-import { Commit } from "vuex";
+import { Commit, MutationTree } from "vuex";
 import { expect } from "chai";
 import mutations from "@/store/mutations";
 import actions from "@/store/actions";
 import { IState } from "@/store/IState";
 
-type IMutation = (state: IState, payload: any) => void;
-
 describe("actions", () => {
-  const mutationFnMap: { [K: string]: IMutation } = {
+  const mutationFnMap: MutationTree<IState> = {
     setLoading: mutations.setLoading,
     increment: mutations.increment,
   };
