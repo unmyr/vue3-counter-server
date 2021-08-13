@@ -22,7 +22,12 @@ describe("actions", () => {
       }
     };
 
-    actions.increment({ commit }, 1);
+    (
+      actions.increment as (
+        { commit }: { commit: Commit },
+        param: number
+      ) => void
+    )({ commit }, 1);
     const timeBegin = new Date();
     const timeId = setInterval(() => {
       const timeNow = new Date();

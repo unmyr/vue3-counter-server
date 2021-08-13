@@ -1,6 +1,7 @@
-import { Commit } from "vuex";
+import { Commit, ActionTree } from "vuex";
+import { CounterState } from "@/store/types";
 
-export default {
+export default <ActionTree<CounterState, any>>{
   increment({ commit }: { commit: Commit }, param: number): void {
     commit("setLoading", true);
     setTimeout(() => {
