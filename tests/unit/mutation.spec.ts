@@ -1,5 +1,5 @@
 import { expect } from "chai";
-import mutations from "@/store/mutations";
+import { mutations } from "@/store/mutations";
 
 const { increment, setLoading } = mutations;
 

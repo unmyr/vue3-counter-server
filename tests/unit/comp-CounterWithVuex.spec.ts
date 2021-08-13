@@ -2,7 +2,7 @@ import { Commit, MutationTree } from "vuex";
 import { expect } from "chai";
 import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
-import mutations from "@/store/mutations";
+import { mutations } from "@/store/mutations";
 import { key } from "@/store";
 import { IState } from "@/store/IState";
 

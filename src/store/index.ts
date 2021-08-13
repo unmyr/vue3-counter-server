@@ -1,7 +1,7 @@
 import { InjectionKey } from "vue";
 import { createStore, Store } from "vuex";
 import { IState } from "@/store/IState";
-import mutations from "@/store/mutations";
+import { mutations } from "@/store/mutations";
 import actions from "@/store/actions";
 
 export const store = createStore<IState>({
