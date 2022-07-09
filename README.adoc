@@ -44,3 +44,12 @@ npm run lint
 
 === Customize configuration
 See https://cli.vuejs.org/config/[Configuration Reference^].
+
+=== Update
+
+==== Update browser list
+
+[source,shell]
+----
+npx browserslist@latest --update-db
+----
