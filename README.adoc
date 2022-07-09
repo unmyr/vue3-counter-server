@@ -16,6 +16,19 @@ npm run serve
 
 === Compiles and minifies for production
 
+. Fix public path to output GitHub Pages (Optional)
++
+[source,javascript]
+.vue.config.js
+----
+module.exports = {
+  publicPath:
+    process.env.NODE_ENV === "production" ? "/vue3-counter-server/" : "/",
+};
+----
+
+. Build for production
++
 [source,shell]
 ----
 npm run build
