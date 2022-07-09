@@ -1,8 +1,8 @@
 module.exports = {
-  preset: '@vue/cli-plugin-unit-jest/presets/typescript',
+  preset: "@vue/cli-plugin-unit-jest/presets/typescript",
   transform: {
-    '^.+\\.vue$': 'vue-jest',
-    '^.+\\.js$': '<rootDir>/node_modules/babel-jest'
+    "^.+\\.vue$": "vue-jest",
+    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
   },
-  collectCoverage: true
-}
+  collectCoverage: true,
+};
