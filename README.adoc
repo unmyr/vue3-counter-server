@@ -1,34 +1,46 @@
 = vue3-counter-server
 
 == Project setup
-```
+
+[source,shell]
+----
 npm install
-```
+----
 
 === Compiles and hot-reloads for development
-```
+
+[source,shell]
+----
 npm run serve
-```
+----
 
 === Compiles and minifies for production
-```
+
+[source,shell]
+----
 npm run build
-```
+----
 
 === Run your unit tests
-```
+
+[source,shell]
+----
 npm run test:unit
-```
+----
 
 === Run your end-to-end tests
-```
+
+[source,shell]
+----
 npm run test:e2e
-```
+----
 
 === Lints and fixes files
-```
+
+[source,shell]
+----
 npm run lint
-```
+----
 
 === Customize configuration
 See https://cli.vuejs.org/config/[Configuration Reference^].
