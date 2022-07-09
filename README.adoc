@@ -54,3 +54,19 @@ See https://cli.vuejs.org/config/[Configuration Reference^].
 npx browserslist@latest --update-db
 ----
 
+==== Fix some vulnerabilities
+
+* Show a security audit
++
+[source,shell]
+----
+npm audit
+----
+
+* Fix some vulnerabilities
++
+[source,shell]
+----
+npm audit fix
+----
+
