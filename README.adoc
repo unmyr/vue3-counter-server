@@ -291,6 +291,7 @@ Require stack:
 ----
 npm uninstall --save-dev vue-loader vue @vue/compiler-sfc
 npm install vue@next
+npm install --save-dev @vue/compiler-sfc
 ----
 
 . Rerun build +

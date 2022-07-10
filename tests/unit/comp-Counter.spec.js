@@ -1,10 +1,10 @@
-import { shallowMount } from "@vue/test-utils";
+import { mount } from "@vue/test-utils";
 import Counter from "@/components/Counter.vue";
 
 describe("Counter.vue", () => {
   it("test increment method", async () => {
     const step = 2;
-    const wrapper = shallowMount(Counter, {
+    const wrapper = mount(Counter, {
       props: { step },
     });
     expect(wrapper.vm.count).toBe(0);
@@ -14,7 +14,7 @@ describe("Counter.vue", () => {
 
   it("click plus button", async () => {
     const step = 1;
-    const wrapper = shallowMount(Counter, {
+    const wrapper = mount(Counter, {
       props: { step },
     });
     expect(wrapper.vm.count).toBe(0);
@@ -24,7 +24,7 @@ describe("Counter.vue", () => {
 
   it("click minus button", async () => {
     const step = 1;
-    const wrapper = shallowMount(Counter, {
+    const wrapper = mount(Counter, {
       props: { step },
     });
     expect(wrapper.vm.count).toBe(0);
