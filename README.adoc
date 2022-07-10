@@ -128,9 +128,11 @@ C:\Program Files (x86)\Nodist\bin
 
  DONE  All plugins are up to date!
 ----
-+
+
+==== Migrate unit tests
+
 For now, the unit test fails with the following errors:
-+
+
 [source,console]
 ----
 > npm run test:unit
@@ -168,7 +170,7 @@ npm uninstall vue-jest
 * Add `@vue/vue3-jest`
 +
 ----
-npm install --save-dev @vue/vue3-jest@27 babel-jest@27
+npm install --save-dev @vue/vue3-jest@27 babel-jest@27 @types/jest@27
 ----
 
 * Rerun the unit test to make sure it succeeds:
