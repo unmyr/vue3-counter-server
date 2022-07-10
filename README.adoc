@@ -128,3 +128,84 @@ C:\Program Files (x86)\Nodist\bin
 
  DONE  All plugins are up to date!
 ----
++
+For now, the unit test fails with the following errors:
++
+[source,console]
+----
+> npm run test:unit
+
+> vue3-counter-server-jest-cypress@0.1.0 test:unit
+> vue-cli-service test:unit
+
+● Validation Error:
+
+  An unknown error occurred in @vue/cli-plugin-unit-jest/presets/typescript:
+
+  Cannot resolve "@vue/vue3-jest" module. Please make sure you have installed "@vue/vue3-jest" as a dev dependency.
+  Error: Cannot resolve "@vue/vue3-jest" module. Please make sure you have installed "@vue/vue3-jest" as a dev dependency.   
+ts\default\jest-preset.js:15:9)
+    at Module._compile (internal/modules/cjs/loader.js:1072:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at Object.<anonymous> (...\vue3-counter-server\node_modules\@vue\cli-plugin-unit-jest\presets\typescript\jest-preset.js:2:23)
+    at Module._compile (internal/modules/cjs/loader.js:1072:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
+
+  Configuration Documentation:
+  https://jestjs.io/docs/configuration
+----
+
+* Remove `vue-jest@5.0.0-alpha.10`
++
+----
+npm uninstall vue-jest
+----
+
+* Add `@vue/vue3-jest`
++
+----
+npm install --save-dev @vue/vue3-jest@27 babel-jest@27
+----
+
+* Rerun the unit test to make sure it succeeds:
++
+[source,console]
+----
+vue3-counter-server> npm run test:unit
+
+> vue3-counter-server-jest-cypress@0.1.0 test:unit
+> vue-cli-service test:unit
+
+jest-haste-map: Haste module naming collision: vue3-counter-server-jest-cypress
+  The following files share their name; please adjust your hasteImpl:
+    * <rootDir>\package.json
+    * <rootDir>\tmp\package.json
+
+ PASS  tests/unit/comp-Counter.spec.js (8.375 s)
+ PASS  tests/unit/action.spec.js (14.835 s)   
+ PASS  tests/unit/mutation.spec.js (6.903 s)  
+ PASS  tests/unit/comp-CounterWithVuex.spec.js (15.546 s)
+----------------------|---------|----------|---------|---------|-------------------
+File                  | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+----------------------|---------|----------|---------|---------|-------------------
+All files             |     100 |      100 |     100 |     100 |                   
+ components           |     100 |      100 |     100 |     100 |                   
+  Counter.vue         |     100 |      100 |     100 |     100 |                   
+  CounterWithVuex.vue |     100 |      100 |     100 |     100 |                   
+ store                |     100 |      100 |     100 |     100 | 
+  actions.ts          |     100 |      100 |     100 |     100 | 
+  mutations.ts        |     100 |      100 |     100 |     100 | 
+ views                |     100 |      100 |     100 |     100 | 
+  CounterWithVuex.vue |     100 |      100 |     100 |     100 | 
+----------------------|---------|----------|---------|---------|-------------------
+
+Test Suites: 4 passed, 4 total
+Tests:       8 passed, 8 total
+Snapshots:   0 total
+Time:        28.549 s
+Ran all test suites.
+----
