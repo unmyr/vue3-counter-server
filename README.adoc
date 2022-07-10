@@ -352,3 +352,26 @@ Use /* eslint-disable */ to ignore all warnings in a file.
 +    "vue/multi-word-component-names": 0,
    },
 ----
+
+==== Update browser
+
+* Make ie11 unsupported
++
+[source,diff]
+..browserslistrc
+----
+ > 1%
+ last 2 versions
+ not dead
++not ie 11
+----
+
+. Update browserlist
++
+[source,console]
+----
+> npx browserslist@latest --update-db
+Latest version:     1.0.30001363
+Installed version:  1.0.30001363
+caniuse-lite is up to date
+----
