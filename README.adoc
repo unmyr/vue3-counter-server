@@ -107,3 +107,87 @@ See https://cli.vuejs.org/migrations/migrate-from-v4.html[Migrate from v4 | Vue 
 /usr/local/lib
 └── @vue/cli@5.0.8
 ----
+
+* Upgrade an existing project from v4 to v5
++
+[source,console]
+----
+$ vue upgrade
+✔  Gathering package information...
+  Name                            Installed       Wanted          Latest          Command to upgrade
+  @vue/cli-service                4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-service
+  @vue/cli-plugin-babel           4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-babel
+  @vue/cli-plugin-e2e-nightwatch  4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-e2e-nightwatch
+  @vue/cli-plugin-eslint          4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-eslint
+  @vue/cli-plugin-router          4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-router
+  @vue/cli-plugin-typescript      4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-typescript
+  @vue/cli-plugin-unit-mocha      4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-unit-mocha
+  @vue/cli-plugin-vuex            4.5.13          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-vuex
+? Continue to upgrade these plugins? Yes
+Upgrading @vue/cli-service from 4.5.13 to 5.0.8
++ @vue/cli-service@5.0.8
+added 237 packages from 151 contributors, removed 176 packages, updated 182 packages, moved 3 packages and audited 1818 packages in 106.236s
+
+...
+
+ DONE  All plugins are up to date!
+----
+
+==== Migrate unit tests
+
+For now, the unit test fails with the following errors:
+
+[source,console]
+----
+vue3-counter-server$ npm run test:unit
+
+> vue3-counter-server@0.1.0 test:unit .../vue3-counter-server
+> vue-cli-service test:unit
+
+(node:733) UnhandledPromiseRejectionWarning: Error: Cannot find module 'vue/compiler-sfc'
+Require stack:
+- .../vue3-counter-server/node_modules/vue-loader/dist/index.js
+- .../vue3-counter-server/node_modules/@vue/cli-service/lib/config/base.js
+- .../vue3-counter-server/node_modules/@vue/cli-service/lib/Service.js
+- .../vue3-counter-server/node_modules/@vue/cli-service/webpack.config.js
+- .../vue3-counter-server/node_modules/mochapack/lib/cli/argsParser/optionsFromParsedArgs/webpack/requireWebpackConfig.js
+- .../vue3-counter-server/node_modules/mochapack/lib/cli/argsParser/optionsFromParsedArgs/webpack/webpackOptionsFromParsedArgs.js
+- .../vue3-counter-server/node_modules/mochapack/lib/cli/argsParser/optionsFromParsedArgs/index.js
+- .../vue3-counter-server/node_modules/mochapack/lib/cli/index.js
+- .../vue3-counter-server/node_modules/mochapack/bin/mochapack
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:902:15)
+    at Function._resolveFilename (.../vue3-counter-server/node_modules/mochapack/lib/util/registerRequireHook.js:26:36)
+    at Function.Module._load (internal/modules/cjs/loader.js:746:27)
+    at Module.require (internal/modules/cjs/loader.js:974:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at Object.<anonymous> (.../vue3-counter-server/node_modules/vue-loader/dist/index.js:8:24)
+    at Module._compile (internal/modules/cjs/loader.js:1085:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1114:10)
+    at Module.load (internal/modules/cjs/loader.js:950:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:790:14)
+(Use `node --trace-warnings ...` to show where the warning was created)
+(node:733) UnhandledPromiseRejectionWarning: Unhandled promise rejection. This error originated either by throwing inside of an async function without a catch block, or by rejecting a promise which was not handled with .catch(). To terminate the node process on unhandled promise rejection, use the CLI flag `--unhandled-rejections=strict` (see https://nodejs.org/api/cli.html#cli_unhandled_rejections_mode). (rejection id: 2)
+(node:733) [DEP0018] DeprecationWarning: Unhandled promise rejections are deprecated. In the future, promise rejections that are not handled will terminate the Node.js process with a non-zero exit code.
+----
+
+. Reinstall vue.
++
+[source,console]
+----
+$ npm install vue
+$ npm install --save-dev @vue/test-utils
+----
+
+. Ignore multi word errors (or fix)
++
+[source,diff]
+.eslintrc.js
+----
+@@ -16,6 +16,7 @@ module.exports = {
+   rules: {
+     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
++    "vue/multi-word-component-names": 0,
+   },
+----
+

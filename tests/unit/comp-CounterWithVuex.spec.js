@@ -1,7 +1,7 @@
 import { expect } from "chai";
 import { mount } from "@vue/test-utils";
 import CounterWithVuex from "@/views/CounterWithVuex.vue";
-import mutations from "@/store/mutations.ts";
+import { mutations } from "@/store/mutations.ts";
 
 describe("CounterWithVuex.vue", () => {
   const mockActions = {
