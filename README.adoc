@@ -211,3 +211,144 @@ Snapshots:   0 total
 Time:        28.549 s
 Ran all test suites.
 ----
+
+==== Migrate e2e tests
+
+For now, the e2e test fails with the following errors:
+
+* build
++
+[source,console]
+----
+vue3-counter-server> npm run build   
+
+> vue3-counter-server-jest-cypress@0.1.0 build
+> vue-cli-service build
+
+
+✔  Building legacy bundle for production...
+ ERROR  Error: Cannot find module 'vue/compiler-sfc'
+        Require stack:
+        - ...\vue3-counter-server\node_modules\vue-loader\dist\index.js
+        - ...\vue3-counter-server\node_modules\@vue\cli-service\lib\config\base.js
+        - ...\vue3-counter-server\node_modules\@vue\cli-service\lib\Service.js
+        - ...\vue3-counter-server\node_modules\@vue\cli-service\bin\vue-cli-service.js
+Error: Cannot find module 'vue/compiler-sfc'
+Require stack:
+- ...\vue3-counter-server\node_modules\vue-loader\dist\index.js
+- ...\vue3-counter-server\node_modules\@vue\cli-service\lib\config\base.js
+- ...\vue3-counter-server\node_modules\@vue\cli-service\lib\Service.js
+- ...\vue3-counter-server\node_modules\@vue\cli-service\bin\vue-cli-service.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:889:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:745:27)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at Object.<anonymous> (...\vue3-counter-server\node_modules\vue-loader\dist\index.js:8:24) 
+    at Module._compile (internal/modules/cjs/loader.js:1072:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+----
+
+* test:e2e
++
+[source,console]
+----
+> npm run test:e2e 
+
+> vue3-counter-server-jest-cypress@0.1.0 test:e2e
+> vue-cli-service test:e2e
+
+ INFO  Starting e2e tests...
+ INFO  Starting development server...
+ ERROR  Error: Cannot find module 'vue/compiler-sfc'
+        Require stack:
+        - ...\vue3-counter-server\node_modules\vue-loader\dist\index.js
+        - ...\vue3-counter-server\node_modules\@vue\cli-service\lib\config\base.js
+        - ...\vue3-counter-server\node_modules\@vue\cli-service\lib\Service.js
+        - ...\vue3-counter-server\node_modules\@vue\cli-service\bin\vue-cli-service.js
+Error: Cannot find module 'vue/compiler-sfc'
+Require stack:
+- ...\vue3-counter-server\node_modules\vue-loader\dist\index.js
+- ...\vue3-counter-server\node_modules\@vue\cli-service\lib\config\base.js
+- ...\vue3-counter-server\node_modules\@vue\cli-service\lib\Service.js
+- ...\vue3-counter-server\node_modules\@vue\cli-service\bin\vue-cli-service.js
+    at Function.Module._resolveFilename (internal/modules/cjs/loader.js:889:15)
+    at Function.Module._load (internal/modules/cjs/loader.js:745:27)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+    at require (internal/modules/cjs/helpers.js:92:18)
+    at Object.<anonymous> (...\vue3-counter-server\node_modules\vue-loader\dist\index.js:8:24) 
+    at Module._compile (internal/modules/cjs/loader.js:1072:14)
+    at Object.Module._extensions..js (internal/modules/cjs/loader.js:1101:10)
+    at Module.load (internal/modules/cjs/loader.js:937:32)
+    at Function.Module._load (internal/modules/cjs/loader.js:778:12)
+    at Module.require (internal/modules/cjs/loader.js:961:19)
+----
+
+. Reinstall vue.
++
+----
+npm uninstall --save-dev vue-loader vue @vue/compiler-sfc
+npm install vue@next
+----
+
+. Rerun build +
+For now, the e2e test fails with the following errors:
++
+[source,console]
+----
+vue3-counter-server> npm run build                                                      
+
+> vue3-counter-server-jest-cypress@0.1.0 build
+> vue-cli-service build
+
+All browser targets in the browserslist configuration have supported ES module.
+Therefore we don't build two separate bundles for differential loading.
+
+
+⠸  Building for production...
+
+ ERROR  Failed to compile with 1 error                                                                               13:50:06
+
+[eslint]
+...\vue3-counter-server\src\components\Counter.vue
+  23:11  error  Component name "Counter" should always be multi-word  vue/multi-word-component-names
+
+...\vue3-counter-server\src\views\About.vue
+  1:1  error  Component name "About" should always be multi-word  vue/multi-word-component-names    
+
+...\vue3-counter-server\src\views\CounterWithVuex.vue
+  13:11  error  Component name "Home" should always be multi-word  vue/multi-word-component-names   
+
+...\vue3-counter-server\src\views\Home.vue
+  13:11  error  Component name "Home" should always be multi-word  vue/multi-word-component-names   
+
+✖ 4 problems (4 errors, 0 warnings)
+
+
+You may use special comments to disable some warnings.
+Use // eslint-disable-next-line to ignore the next line.
+Use /* eslint-disable */ to ignore all warnings in a file.
+    at Hook.eval [as callAsync] (eval at create (...\vue3-counter-server\node_modules\webpack\node_modules\tapable\lib\HookCodeFactory.js:33:10), <anonymous>:6:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (...\vue3-counter-server\node_modules\webpack\node_modules\tapable\lib\Hook.js:18:14)
+    at Cache.shutdown (...\vue3-counter-server\node_modules\webpack\lib\Cache.js:150:23)       
+    at ...\vue3-counter-server\node_modules\webpack\lib\Compiler.js:1225:15
+    at Hook.eval [as callAsync] (eval at create (...\vue3-counter-server\node_modules\webpack\node_modules\tapable\lib\HookCodeFactory.js:33:10), <anonymous>:6:1)
+    at Hook.CALL_ASYNC_DELEGATE [as _callAsync] (...\vue3-counter-server\node_modules\webpack\node_modules\tapable\lib\Hook.js:18:14)
+    at Compiler.close (...\vue3-counter-server\node_modules\webpack\lib\Compiler.js:1218:23)
+----
+
+. Ignore multi word errors (or fix)
++
+[source,diff]
+.git diff --unified=4 .eslintrc.js
+----
+@@ -16,8 +16,9 @@ module.exports = {
+   rules: {
+     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
+     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
+     "vue/no-multiple-template-root": 0,
++    "vue/multi-word-component-names": 0,
+   },
+----
