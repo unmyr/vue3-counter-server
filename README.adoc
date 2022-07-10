@@ -83,3 +83,27 @@ npm audit
 npm audit fix
 ----
 
+==== Update Google Chrome
+
+[source,console]
+----
+$ apt list --installed "*chrome*"
+Listing... Done
+google-chrome-stable/now 75.0.3770.80-1 amd64 [installed,upgradable to: 97.0.4692.71-1]
+----
+
+
+==== Update Vue CLI from v4 to v5
+
+See https://cli.vuejs.org/migrations/migrate-from-v4.html[Migrate from v4 | Vue CLI^].
+
+* First, install the latest Vue CLI globally:
++
+[source,console]
+----
+> npm install -g @vue/cli
+...
+> npm ls -g @vue/cli
+/usr/local/lib
+└── @vue/cli@5.0.8
+----
