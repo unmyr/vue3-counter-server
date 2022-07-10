@@ -82,3 +82,49 @@ npm audit
 ----
 npm audit fix
 ----
+
+==== Update Vue CLI from v4 to v5
+
+See https://cli.vuejs.org/migrations/migrate-from-v4.html[Migrate from v4 | Vue CLI^].
+
+* Check Vue CLI version
++
+[source,console]
+----
+> npm ls -g @vue/cli
+C:\Program Files (x86)\Nodist\bin
+└── @vue/cli@4.5.13
+----
+
+* First, install the latest Vue CLI globally:
++
+[source,console]
+----
+> npm install -g @vue/cli
+...
+> npm ls -g @vue/cli     
+C:\Program Files (x86)\Nodist\bin
+└── @vue/cli@5.0.8
+----
+
+* Upgrade an existing project from v4 to v5
++
+----
+> vue upgrade
+ WARN  There are uncommitted changes in the current repository, it's recommended to commit or stash them first.
+? Still proceed? Yes
+✔  Gathering package information...
+  Name                         Installed       Wanted          Latest          Command to upgrade
+  @vue/cli-service             4.5.19          4.5.19          5.0.8           vue upgrade @vue/cli-service
+  @vue/cli-plugin-e2e-cypress  4.5.19          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-e2e-cypress       
+  @vue/cli-plugin-eslint       4.5.19          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-eslint
+  @vue/cli-plugin-router       4.5.19          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-router
+  @vue/cli-plugin-typescript   4.5.19          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-typescript        
+  @vue/cli-plugin-unit-jest    4.5.19          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-unit-jest
+  @vue/cli-plugin-vuex         4.5.19          4.5.19          5.0.8           vue upgrade @vue/cli-plugin-vuex
+? Continue to upgrade these plugins? (Y/n) Yes
+
+...snip...
+
+ DONE  All plugins are up to date!
+----
