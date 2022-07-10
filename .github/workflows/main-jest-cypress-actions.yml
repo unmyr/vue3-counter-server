@@ -24,7 +24,7 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: npm install
       - run: npm run test:unit
-      - run: npm run build
+      - run: npm run build-for-gh-pages
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
