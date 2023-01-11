@@ -376,3 +376,42 @@ Latest version:     1.0.30001363
 Installed version:  1.0.30001363
 caniuse-lite is up to date
 ----
+
+==== Update ESLint (2023-01-11)
+
+. Update ESLint
++
+[source,shell]
+----
+npm install --save-dev --legacy-peer-deps eslint@8 @vue/eslint-config-standard@8 eslint-plugin-promise@6 eslint-plugin-vue@9 @vue/eslint-config-typescript@11 @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-standard@5 eslint-config-prettier@8 @vue/eslint-config-prettier@7 prettier
+----
+
+. Fix some vulnerabilities
++
+[source,shell]
+----
+npm audit fix
+----
+
+. Update browserslist
++
+[source,console]
+----
+> npx browserslist@latest --update-db
+...
+Latest version:     1.0.30001442
+Installed version:  1.0.30001363
+...
+----
+
+. Confirm it works
++
+[source,shell]
+----
+npm run lint
+npm run serve
+npm run build
+npm run test:unit
+npm run test:e2e
+----
+
