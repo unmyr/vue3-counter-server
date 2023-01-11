@@ -31,7 +31,7 @@
     "@vue/eslint-config-prettier": "^7.0.0",
     "@vue/eslint-config-standard": "^8.0.1",
     "@vue/eslint-config-typescript": "^11.0.2",
-    "@vue/test-utils": "^2.0.0-0",
+    "@vue/test-utils": "^2.2.7",
     "@vue/vue3-jest": "^27.0.0",
     "babel-jest": "^27.5.1",
     "cypress": "^9.7.0",
