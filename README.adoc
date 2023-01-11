@@ -109,6 +109,7 @@ C:\Program Files (x86)\Nodist\bin
 
 * Upgrade an existing project from v4 to v5
 +
+[source,console]
 ----
 > vue upgrade
  WARN  There are uncommitted changes in the current repository, it's recommended to commit or stash them first.
@@ -163,12 +164,14 @@ ts\default\jest-preset.js:15:9)
 
 * Remove `vue-jest@5.0.0-alpha.10`
 +
+[source,shell]
 ----
 npm uninstall vue-jest
 ----
 
 * Add `@vue/vue3-jest`
 +
+[source,shell]
 ----
 npm install --save-dev @vue/vue3-jest@27 babel-jest@27 @types/jest@27
 ----
@@ -288,6 +291,7 @@ Require stack:
 
 . Reinstall vue.
 +
+[source,shell]
 ----
 npm uninstall --save-dev vue-loader vue @vue/compiler-sfc
 npm install vue@next
@@ -415,3 +419,12 @@ npm run test:unit
 npm run test:e2e
 ----
 
+==== Update Vue.js (2023-01-11)
+
+* Update `vue`
++
+[source,shell]
+----
+npm install --save-dev typescript sass sass-loader @vue/compiler-sfc @vue/babel-preset-app
+npm install vue vue-router vuex
+----
