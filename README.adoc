@@ -175,6 +175,8 @@ npm uninstall vue-jest
 ----
 npm install --save-dev @vue/vue3-jest@27 babel-jest@27 @types/jest@27
 ----
++
+NOTE:: `@vue/cli-plugin-unit-jest@5.0.8` depend on `ts-jest@"^27.0.4"`
 
 * Rerun the unit test to make sure it succeeds:
 +
@@ -435,12 +437,40 @@ Installed version:  1.0.30001442
 npm run lint
 ----
 
-==== Update Vue.js (2023-01-11)
+==== Update Vue.js (2023-03-25)
 
-* Update `vue`
+. Check outdated
++
+[source,console]
+----
+> npm outdated
+Package                Current  Wanted  Latest  Location                            Depended by
+...
+@vue/babel-preset-app   4.5.19  4.5.19   5.0.8  node_modules/@vue/babel-preset-app  vue3-counter-server
+@vue/compiler-sfc       3.2.45  3.2.47  3.2.47  node_modules/@vue/compiler-sfc      vue3-counter-server
+...
+sass                    1.57.1  1.60.0  1.60.0  node_modules/sass                   vue3-counter-server
+sass-loader              8.0.2   8.0.2  13.2.1  node_modules/sass-loader            vue3-counter-server
+...
+typescript               4.5.5   4.5.5   5.0.2  node_modules/typescript             vue3-counter-server
+vue                     3.2.45  3.2.47  3.2.47  node_modules/vue                    vue3-counter-server
+----
+
+. Update `vue`
 +
 [source,shell]
 ----
-npm install --save-dev typescript sass sass-loader @vue/compiler-sfc @vue/babel-preset-app
+npm install --save-dev typescript sass sass-loader @vue/compiler-sfc @vue/babel-preset-app@5
 npm install vue vue-router vuex
+----
+
+. Confirm it works
++
+[source,shell]
+----
+npm run lint
+npm run build
+npm run serve
+npm run test:unit
+npm run test:e2e
 ----
