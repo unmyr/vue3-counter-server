@@ -381,13 +381,33 @@ Installed version:  1.0.30001363
 caniuse-lite is up to date
 ----
 
-==== Update ESLint (2023-01-11)
+==== Update ESLint (2023-03-25)
+
+* Check outdated
++
+[source,console]
+----
+> npm outdated
+Package                           Current  Wanted  Latest  Location                                       Depended by
+...
+@typescript-eslint/eslint-plugin   5.48.1  5.56.0  5.56.0  node_modules/@typescript-eslint/eslint-plugin  vue3-counter-server        
+...
+@vue/eslint-config-prettier         7.0.0   7.1.0   7.1.0  node_modules/@vue/eslint-config-prettier       vue3-counter-server        
+...
+eslint                             8.31.0  8.36.0  8.36.0  node_modules/eslint                            vue3-counter-server        
+eslint-config-prettier              8.6.0   8.8.0   8.8.0  node_modules/eslint-config-prettier            vue3-counter-server        
+eslint-plugin-import               2.26.0  2.27.5  2.27.5  node_modules/eslint-plugin-import              vue3-counter-server        
+eslint-plugin-vue                   9.8.0  9.10.0  9.10.0  node_modules/eslint-plugin-vue                 vue3-counter-server        
+...
+prettier                            2.8.2   2.8.7   2.8.7  node_modules/prettier                          vue3-counter-server        
+...
+----
 
 . Update ESLint
 +
 [source,shell]
 ----
-npm install --save-dev --legacy-peer-deps eslint@8 @vue/eslint-config-standard@8 eslint-plugin-promise@6 eslint-plugin-vue@9 @vue/eslint-config-typescript@11 @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-plugin-standard@5 eslint-config-prettier@8 @vue/eslint-config-prettier@7 prettier
+npm install --save-dev --legacy-peer-deps eslint@8 eslint-plugin-import eslint-plugin-vue@9 @typescript-eslint/eslint-plugin @typescript-eslint/parser eslint-config-prettier@8 @vue/eslint-config-prettier@7 prettier
 ----
 
 . Fix some vulnerabilities
@@ -413,10 +433,6 @@ Installed version:  1.0.30001442
 [source,shell]
 ----
 npm run lint
-npm run serve
-npm run build
-npm run test:unit
-npm run test:e2e
 ----
 
 ==== Update Vue.js (2023-01-11)
