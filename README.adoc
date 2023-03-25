@@ -403,8 +403,8 @@ npm audit fix
 ----
 > npx browserslist@latest --update-db
 ...
-Latest version:     1.0.30001442
-Installed version:  1.0.30001363
+Latest version:     1.0.30001469
+Installed version:  1.0.30001442
 ...
 ----
 
