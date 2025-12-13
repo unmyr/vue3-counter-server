@@ -1,8 +1,8 @@
-import { mutations } from "@/store/mutations";
-import { actions } from "@/store/actions";
+import { mutations } from '@/store/mutations';
+import { actions } from '@/store/actions';
 
-describe("actions", () => {
-  it("increment action", (done) => {
+describe('actions', () => {
+  it('increment action', (done) => {
     const state = {
       count: 0,
       isLoading: false,
@@ -15,9 +15,7 @@ describe("actions", () => {
     const timeBegin = new Date();
     const timeId = setInterval(() => {
       const timeNow = new Date();
-      const elapsedTimeSec = Math.floor(
-        (timeNow.getTime() - timeBegin.getTime()) / 1000.0
-      );
+      const elapsedTimeSec = Math.floor((timeNow.getTime() - timeBegin.getTime()) / 1000.0);
       if (state.isLoading && elapsedTimeSec < 3) {
         return;
       }

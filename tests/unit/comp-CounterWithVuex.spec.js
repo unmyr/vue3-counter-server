@@ -1,16 +1,16 @@
-import { mount } from "@vue/test-utils";
-import CounterWithVuex from "@/views/CounterWithVuex.vue";
-import { mutations } from "@/store/mutations.ts";
+import { mount } from '@vue/test-utils';
+import CounterWithVuex from '@/views/CounterWithVuex.vue';
+import { mutations } from '@/store/mutations.ts';
 
-describe("CounterWithVuex.vue", () => {
+describe('CounterWithVuex.vue', () => {
   const mockActions = {
     increment({ commit }, param) {
-      commit("increment", param);
-      commit("setLoading", false);
+      commit('increment', param);
+      commit('setLoading', false);
     },
   };
 
-  it("should render increment", async () => {
+  it('should render increment', async () => {
     const state = {
       count: 0,
       isLoading: false,
@@ -38,12 +38,12 @@ describe("CounterWithVuex.vue", () => {
       props: { step },
     });
     expect(state.count).toBe(0);
-    await wrapper.find("button[name='plus']").trigger("click");
+    await wrapper.find("button[name='plus']").trigger('click');
     expect(state.count).toBe(1);
     expect(state.isLoading).toBe(false);
   });
 
-  it("should render decrement", async () => {
+  it('should render decrement', async () => {
     const state = {
       count: 0,
       isLoading: false,
@@ -70,7 +70,7 @@ describe("CounterWithVuex.vue", () => {
       props: { step },
     });
     expect(state.count).toBe(0);
-    await wrapper.find("button[name='minus']").trigger("click");
+    await wrapper.find("button[name='minus']").trigger('click');
     expect(state.count).toBe(-1);
     expect(state.isLoading).toBe(false);
   });

@@ -1,9 +1,9 @@
-import { mutations } from "@/store/mutations";
+import { mutations } from '@/store/mutations';
 
 const { increment, setLoading } = mutations;
 
-describe("mutation of Counter", () => {
-  it("increment", () => {
+describe('mutation of Counter', () => {
+  it('increment', () => {
     const state = { count: 0 };
 
     increment(state, 1);
@@ -13,7 +13,7 @@ describe("mutation of Counter", () => {
     expect(state.count).toBe(0);
   });
 
-  it("setLoading", () => {
+  it('setLoading', () => {
     const state = { isLoading: 0 };
     setLoading(state, true);
     expect(state.isLoading).toBe(true);

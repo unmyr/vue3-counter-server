@@ -1,13 +1,7 @@
 <template>
   <div class="counter-with-vuex">
-    <button name="plus" :disabled="isLoading" @click="syncIncrement(step)">
-      +{{ step }}
-    </button>
-    <button
-      name="minus"
-      :disabled="isLoading"
-      @click="asyncIncrement(step * -1)"
-    >
+    <button name="plus" :disabled="isLoading" @click="syncIncrement(step)">+{{ step }}</button>
+    <button name="minus" :disabled="isLoading" @click="asyncIncrement(step * -1)">
       -{{ step }}
     </button>
     <div v-if="isLoading">Now loading...</div>
@@ -16,36 +10,36 @@
 </template>
 
 <script lang="ts">
-  import { computed, defineComponent } from "vue";
-  import { useStore } from "vuex";
+import { computed, defineComponent } from 'vue';
+import { useStore } from 'vuex';
 
-  export default defineComponent({
-    name: "CounterWithVuex",
-    props: {
-      step: {
-        type: Number,
-        required: true,
-      },
+export default defineComponent({
+  name: 'CounterWithVuex',
+  props: {
+    step: {
+      type: Number,
+      required: true,
     },
-    setup() {
-      const store = useStore();
+  },
+  setup() {
+    const store = useStore();
 
-      return {
-        // access a state in computed function
-        count: computed(() => store.state.count),
-        isLoading: computed(() => store.state.isLoading),
-        // access a mutation
-        syncIncrement: (num: number) => store.commit("increment", num),
-        // access a action
-        asyncIncrement: (num: number) => store.dispatch("increment", num),
-      };
-    },
-  });
+    return {
+      // access a state in computed function
+      count: computed(() => store.state.count),
+      isLoading: computed(() => store.state.isLoading),
+      // access a mutation
+      syncIncrement: (num: number) => store.commit('increment', num),
+      // access a action
+      asyncIncrement: (num: number) => store.dispatch('increment', num),
+    };
+  },
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-  .count-area {
-    color: blueviolet;
-  }
+.count-area {
+  color: blueviolet;
+}
 </style>
