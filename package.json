@@ -3,38 +3,35 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "build-for-gh-pages": "vue-cli-service build --mode gh-pages",
-    "test:unit": "vue-cli-service test:unit",
-    "test:e2e": "vue-cli-service test:e2e --headless",
-    "lint": "vue-cli-service lint"
+    "serve": "vite",
+    "build": "vite build",
+    "build-for-gh-pages": "vite build --base ./",
+    "test:unit": "jest",
+    "test:e2e": "cypress run --headless",
+    "lint": "eslint --ext .ts,.js,.vue src tests",
+    "lint:fix": "eslint --ext .ts,.js,.vue src tests --fix",
+    "format": "prettier --write \"**/*.{js,ts,vue,jsx,tsx,json,css,md}\""
   },
   "dependencies": {
-    "vue": "^3.2.47",
-    "vue-router": "^4.1.6",
+    "vue": "^3.5.25",
+    "vue-router": "^4.6.4",
     "vuex": "^4.1.0"
   },
   "devDependencies": {
+    "@vue/babel-preset-app": "^5.0.8",
+    "vite": "^5.1.0",
+    "@vitejs/plugin-vue": "^4.2.3",
+    "@vue/compiler-sfc": "^3.5.25",
     "@types/jest": "^27.5.2",
     "@typescript-eslint/eslint-plugin": "^5.56.0",
     "@typescript-eslint/parser": "^5.56.0",
-    "@vue/babel-preset-app": "^5.0.8",
-    "@vue/cli-plugin-e2e-cypress": "^5.0.8",
-    "@vue/cli-plugin-eslint": "^5.0.8",
-    "@vue/cli-plugin-router": "^5.0.8",
-    "@vue/cli-plugin-typescript": "^5.0.8",
-    "@vue/cli-plugin-unit-jest": "^5.0.8",
-    "@vue/cli-plugin-vuex": "^5.0.8",
-    "@vue/cli-service": "^5.0.8",
-    "@vue/compiler-sfc": "^3.2.47",
     "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-standard": "^8.0.1",
     "@vue/eslint-config-typescript": "^11.0.2",
     "@vue/test-utils": "^2.3.2",
     "@vue/vue3-jest": "^27.0.0",
     "babel-jest": "^27.5.1",
-    "cypress": "^12.8.1",
+    "cypress": "^15.7.1",
     "eslint": "^8.36.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-import": "^2.27.5",
@@ -43,17 +40,12 @@
     "eslint-plugin-promise": "^6.1.1",
     "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-vue": "^9.10.0",
+    "eslint-plugin-cypress": "^2.12.1",
     "jest": "^27.5.1",
     "prettier": "^2.8.7",
     "sass": "^1.60.0",
     "sass-loader": "^13.2.1",
     "ts-jest": "^27.1.5",
     "typescript": "~4.9.5"
-  },
-  "bundledDependencies": [
-    "bundle-dependencies",
-    "vue",
-    "vue-router",
-    "vuex"
-  ]
+  }
 }

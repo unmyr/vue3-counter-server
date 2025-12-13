@@ -7,5 +7,6 @@ module.exports = defineConfig({
     specPattern: "tests/e2e/specs/*.js",
     supportFile: "tests/e2e/support/index.js",
     videosFolder: "tests/e2e/videos",
+    baseUrl: 'http://localhost:8080',
   },
 });

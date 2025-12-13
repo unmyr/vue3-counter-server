@@ -1,7 +1,7 @@
 {
   "endOfLine": "lf",
-  "printWidth": 80,
   "tabWidth": 2,
-  "trailingComma": "es5",
-  "vueIndentScriptAndStyle": true
+  "printWidth": 100,
+  "singleQuote": true,
+  "trailingComma": "es5"
 }
