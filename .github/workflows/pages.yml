@@ -32,7 +32,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
-      - run: npm install
+      - run: npm ci
       - run: npm run test:unit
       - run: npm run build-for-gh-pages
       - name: Build with Jekyll
