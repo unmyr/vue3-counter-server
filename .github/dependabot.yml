@@ -22,6 +22,7 @@ updates:
           - "@types/jest"
           - "@vue/vue3-jest"
           - "babel-jest"
+          - "jest-environment-jsdom"
           - "jest"
           - "ts-jest"
         update-types:
@@ -39,6 +40,7 @@ updates:
           - "@types/jest"
           - "@vue/vue3-jest"
           - "babel-jest"
+          - "jest-environment-jsdom"
           - "jest"
           - "ts-jest"
         update-types:
