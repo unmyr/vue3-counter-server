@@ -1,6 +1,6 @@
 ---
 name: dependency-maintenance
-description: "Use when updating npm dependencies, reviewing Dependabot PRs, resolving peer dependency conflicts, or validating package.json and package-lock.json changes in this Vue 3, Jest, and Cypress project."
+description: 'Use when updating npm dependencies, reviewing Dependabot PRs, resolving peer dependency conflicts, or validating package.json and package-lock.json changes in this Vue 3, Jest, and Cypress project.'
 ---
 
 # Dependency Maintenance
