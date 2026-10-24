@@ -6,28 +6,29 @@ updates:
     directory: "/"
     # Check the npm registry for updates every day (weekdays)
     schedule:
-      interval: "daily"
+      interval: "weekly"
+
     groups:
-      jest:
+      eslint-tooling:
         patterns:
-          - "@types/jest"
-          - "@vue/vue3-jest"
-          - "babel-jest"
-          - "jest"
-          - "ts-jest"
-          - "typescript"
-      eslint:
-        patterns:
-          - "@typescript-eslint/eslint-plugin"
-          - "@typescript-eslint/parser"
-          - "@vue/eslint-config-standard"
-          - "@vue/eslint-config-typescript"
-          - "@vue/eslint-config-typescript"
-          - "eslint-config-prettier"
-          - "eslint-plugin-cypress"
-          - "eslint-plugin-vue"
           - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+          - "@vue/eslint-config-*"
           - "prettier"
+
+      patch-updates:
+        patterns:
+          - "*"
+        exclude-patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@typescript-eslint/*"
+          - "@vue/eslint-config-*"
+          - "prettier"
+        update-types:
+          - "patch"
+
     ignore:
       # Remove when the dependent tooling supports TypeScript 7.
       - dependency-name: "typescript"
