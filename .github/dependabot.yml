@@ -17,6 +17,16 @@ updates:
           - "@vue/eslint-config-*"
           - "prettier"
 
+      jest-tooling:
+        patterns:
+          - "@types/jest"
+          - "@vue/vue3-jest"
+          - "babel-jest"
+          - "jest"
+          - "ts-jest"
+        update-types:
+          - "patch"
+
       patch-updates:
         patterns:
           - "*"
@@ -26,21 +36,15 @@ updates:
           - "@typescript-eslint/*"
           - "@vue/eslint-config-*"
           - "prettier"
+          - "@types/jest"
+          - "@vue/vue3-jest"
+          - "babel-jest"
+          - "jest"
+          - "ts-jest"
         update-types:
           - "patch"
 
     ignore:
       # Remove when the dependent tooling supports TypeScript 7.
       - dependency-name: "typescript"
-        update-types: ["version-update:semver-major"]
-      # ESLint is prone to compatibility issues, so it will be excluded from automatic updates.
-      - dependency-name: "eslint"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "eslint-*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@typescript-eslint/*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "@vue/eslint-config-*"
-        update-types: ["version-update:semver-major"]
-      - dependency-name: "prettier"
         update-types: ["version-update:semver-major"]
