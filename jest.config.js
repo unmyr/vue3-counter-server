@@ -1,7 +1,7 @@
 module.exports = {
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.vue$': '@vue/vue3-jest',
+    '^.+\\.vue$': '<rootDir>/tests/unit/vue3-jest-transformer.js',
     '^.+\\.ts$': 'ts-jest',
     '^.+\\.js$': 'babel-jest',
   },
