@@ -16,3 +16,7 @@ updates:
           - "jest"
           - "ts-jest"
           - "typescript"
+    ignore:
+      # Remove when the dependent tooling supports TypeScript 7.
+      - dependency-name: "typescript"
+        update-types: ["version-update:semver-major"]
